@@ -1,4 +1,4 @@
-#Exemplo de Backend em Python para Vadestudo_PMERJ
+# Exemplo de Backend em Python para Vadestudo_PMERJ
 
 from fastapi import FastAPI, Request
 import requests
@@ -14,12 +14,15 @@ openai.api_key = OPENAI_API_KEY
 
 app = FastAPI()
 
+
+# ROTA RAIZ PARA TESTE
 @app.get("/")
 def home():
     return {"status": "online"}
-    
+
+
 # ======== FUNÇÃO TEMPORÁRIA =========
-# Aqui você valida no futuro com seu banco de dados.
+# Aqui você valida no futuro com banco de dados.
 def is_subscriber(telegram_id):
     """
     Versão inicial: aceita todos os usuários como assinantes.
@@ -41,8 +44,14 @@ async def webhook(request: Request):
     data = await request.json()
 
     try:
-        chat_id = data["message"]["chat"]["id"]
-        user_message = data["message"]["text"]
+        # Verifica se é mensagem normal
+        if "message" in data and "text" in data["message"]:
+            chat_id = data["message"]["chat"]["id"]
+            user_message = data["message"]["text"]
+
+        else:
+            # Caso contrário, ignora update sem texto
+            return {"ok": True}
 
         # Verificação de assinatura
         if not is_subscriber(chat_id):
