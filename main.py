@@ -17,9 +17,14 @@ app = FastAPI()
 
 # ROTA RAIZ PARA TESTE
 @app.get("/")
-def home():
-    return {"status": "online"}
+#def home():
+#    return {"status": "online"}
+async def root():
+    return {"message": "Hello World"}
 
+
+if __name__ == '__main__':
+    uvicorn.run(app, port=8080, host='0.0.0.0')
 
 # ======== FUNÇÃO TEMPORÁRIA =========
 # Aqui você valida no futuro com banco de dados.
