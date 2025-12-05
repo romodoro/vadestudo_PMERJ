@@ -6,9 +6,9 @@ import openai
 import os
 
 # ENV
-BOT_TOKEN = os.getenv("8462236658:AAHVltwkuI-vGWI9HIyWTz_xvQN5bs0qJnE") #TELEGRAN_TOKEN
-OPENAI_API_KEY = os.getenv("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") #OPENAI_API_KEY
-ASSISTANT_ID = os.getenv("asst_SZSK3DehoQrC6pMjWPbBANiD") #ASSISTANT_ID
+BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+ASSISTANT_ID = os.getenv("ASSISTANT_ID")
 
 openai.api_key = OPENAI_API_KEY
 
