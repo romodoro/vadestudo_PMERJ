@@ -14,6 +14,10 @@ openai.api_key = OPENAI_API_KEY
 
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"status": "online"}
+    
 # ======== FUNÇÃO TEMPORÁRIA =========
 # Aqui você valida no futuro com seu banco de dados.
 def is_subscriber(telegram_id):
