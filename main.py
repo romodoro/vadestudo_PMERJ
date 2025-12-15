@@ -3,7 +3,6 @@ import time
 import requests
 from fastapi import FastAPI, Request
 from openai import OpenAI
-from openai import OpenAI
 client = OpenAI()
 
 response = client.responses.create(
