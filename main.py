@@ -3,14 +3,6 @@ import time
 import requests
 from fastapi import FastAPI, Request
 from openai import OpenAI
-client = OpenAI()
-
-response = client.responses.create(
-  prompt={
-    "id": "pmpt_69402737828c8190bda7246821fd5e88019f41d77304790b",
-    "version": "2"
-  }
-)
 
 # ================== VARIÁVEIS DE AMBIENTE ==================
 BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
