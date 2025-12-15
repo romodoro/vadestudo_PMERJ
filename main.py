@@ -86,12 +86,21 @@ async def telegram_webhook(request: Request):
             assistant_id=ASSISTANT_ID
         )
 
+        print("========= DEBUG ASSISTANT =========")
+        print("ASSISTANT_ID USADO:", ASSISTANT_ID)
+        print("RUN ID:", run.id)
+        print("RUN ASSISTANT_ID:", run.assistant_id)
+        print("===================================")
+
         # ⏳ Aguarda conclusão
         while True:
             run_status = openai_client.beta.threads.runs.retrieve(
                 thread_id=thread_id,
                 run_id=run.id
             )
+
+            print("RUN STATUS:", run_status.status)
+            
             if run_status.status == "completed":
                 break
             time.sleep(0.6)
